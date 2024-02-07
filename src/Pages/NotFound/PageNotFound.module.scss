@@ -1,0 +1,40 @@
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(249 250 251);
+    min-height: 100vh;
+}
+
+.layout{
+    border-radius: 0.5rem; 
+    padding: 2rem;
+    background-color: white;
+    box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+    text-align: center;
+}
+
+.errorCode{
+    margin-bottom: 1rem;
+    font-size: 2.25rem; 
+    line-height: 2.5rem;
+    font-weight: bold;
+}
+
+.message{
+    color: rgb(75 85 99);
+}
+
+.link{
+    text-decoration: none;
+    margin-top: 1rem;
+    display: inline-block;
+    border-radius: 0.25rem;
+    background-color: rgb(59 130 246);
+    padding-left: 1rem; 
+    padding-right: 1rem;
+    padding-top: 0.5rem; 
+    padding-bottom: 0.5rem;
+    font-weight: 600;
+    color: white;
+}
