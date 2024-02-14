@@ -1,13 +1,14 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { ROUTER } from './Router';
+import { PUBLIC_ROUTE } from './Router';
 import './App.css';
+import { PublicLayout } from './Layout';
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-        { ROUTER.map( router => (
-          <Route key={router.key} path={router.path} element={router.element}/>
+        { PUBLIC_ROUTE.map( router => (
+          <Route key={router.key} path={router.path} element={<PublicLayout>{router.element}</PublicLayout>}/>
         ))}
       </Routes>
     </BrowserRouter>
