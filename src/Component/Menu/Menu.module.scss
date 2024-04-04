@@ -1,0 +1,55 @@
+
+.place_element_container{
+    width: 1200px;
+    max-width: 1515px;
+    min-width: 250px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 4px 16px;
+}
+.place_content{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 70px;
+}
+.country_container {
+    display: flex;
+    flex-direction: column;
+    p {
+        margin: 0;
+        margin: 10px;
+        font-size: 18px;
+        font-family: "Almendra", serif;
+        font-weight: 500;
+        font-style: normal;
+    }
+}
+
+.country_content{
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-column-gap: 40px;
+}
+
+.country {
+    text-decoration: none;
+    color: black;
+    display: flex;
+    align-items: center;
+    
+    span {
+        flex: 1;
+        margin-left: 5px;
+        font-size: 16px;
+        font-family: "Almendra", serif;
+        font-weight: 500;
+        font-style: normal;
+        padding: 5px;
+
+        &:hover {
+            text-decoration: underline;
+            color: #3b82f6;
+        }
+    }
+}
+

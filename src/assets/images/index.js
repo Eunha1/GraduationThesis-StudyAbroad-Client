@@ -1,10 +1,30 @@
-const images  = {
-    logo: require('./logo.png'),
-    email: require('./email.png'),
-    hotline: require('./hotline.png'),
-    mailbox: require('./mailbox.png'),
-    phone: require('./phone.png'),
-    gps: require('./gps.png'),
-}
+const images = {
+  logo: require('./logo.png'),
+  email: require('./email.png'),
+  hotline: require('./hotline.png'),
+  leftArrow: require('./left-arrow.png'),
+  background: require('./background.png'),
+  shoolership: require('./Scholarships.jpg'),
+  subject: require('./subject.jpg'),
+  satScore: require('./sat-exam.png'),
+  university: require('./university.jpg'),
+  university_2: require('./university_2.jpg'),
+  harvard: require('./harvard.png'),
+  seminor_1: require('./seminor_1.jpg'),
+  seminor_2: require('./seminor_2.jpg'),
+  seminor_3: require('./seminor_3.jpeg'),
+  MIT_logo: require('./MIT-logo.png'),
+  MEXT: require('./MEXT.png'),
+  logo_image: require('./logo-image.png'),
+  bg_testimonial: require('./bg-testimonial.webp'),
+  australia_brand: require('./Australia.webp'),
+  united_kingdom: require('./UK.webp'),
+  united_state: require('./brand3.webp'),
+  korean: require('./brand4.webp'),
+  japan: require('./brand5.webp'),
+  service: require('./service.webp'),
+  feature_2: require('./feature_2.webp'),
+  feature_3: require('./feature_3.webp'),
+};
 
-export default images
+export default images;
