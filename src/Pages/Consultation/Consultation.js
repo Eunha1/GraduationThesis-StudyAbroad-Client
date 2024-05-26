@@ -96,26 +96,49 @@ function Consultation() {
       </div>
       {localStorage.getItem('advise-info') ? (
         <div class="flex items-center justify-center">
-        <div class="p-4 rounded shadow-lg ring ring-indigo-600/50">
-          <div class="flex flex-col items-center space-y-2">
-            <svg xmlns="http://www.w3.org/2000/svg" class="text-green-600 w-28 h-28" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-            </svg>
-            <h2 class="text-4xl font-bold">Thank You !</h2>
-            <p> Cảm ơn bạn đã sử dụng dịch vụ đăng kí tư vấn của chúng tôi. Chúng tôi sẽ sớm liên hệ với bạn</p>
-            <a
-              class="inline-flex items-center px-4 py-2 text-white bg-indigo-600 border border-indigo-600 rounded rounded-full hover:bg-indigo-700 focus:outline-none focus:ring">
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3 mr-2" fill="none" viewBox="0 0 24 24"
-                stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M7 16l-4-4m0 0l4-4m-4 4h18" />
+          <div class="p-4 rounded shadow-lg ring ring-indigo-600/50">
+            <div class="flex flex-col items-center space-y-2">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="text-green-600 w-28 h-28"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="1"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
               </svg>
-              <span class="text-sm font-medium">
-                Home
-              </span>
-            </a>
+              <h2 class="text-4xl font-bold">Thank You !</h2>
+              <p>
+                {' '}
+                Cảm ơn bạn đã sử dụng dịch vụ đăng kí tư vấn của chúng tôi.
+                Chúng tôi sẽ sớm liên hệ với bạn
+              </p>
+              {/* eslint-disable-next-line */}
+              <a class="inline-flex items-center px-4 py-2 text-white bg-indigo-600 border border-indigo-600 rounded-full hover:bg-indigo-700 focus:outline-none focus:ring">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="w-3 h-3 mr-2"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M7 16l-4-4m0 0l4-4m-4 4h18"
+                  />
+                </svg>
+                <span class="text-sm font-medium">Home</span>
+              </a>
+            </div>
           </div>
         </div>
-      </div>
       ) : (
         <form
           className="bg-gray-50 border-2 border-gray-300 rounded-xl p-4 md:w-[700px] w-[350px] h-auto"

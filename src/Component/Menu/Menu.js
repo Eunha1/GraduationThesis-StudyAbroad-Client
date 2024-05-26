@@ -1,101 +1,51 @@
-import { Link, NavLink } from 'react-router-dom';
-import { LightTooltip } from '../../utils/CustomToolTip';
-import ChevronRightIcon from '@mui/icons-material/ChevronRight';
-// import Destination from './Destination';
-// import styles from './Menu.module.scss'
+import { Link } from 'react-router-dom';
+import { TopMenu } from '../../utils/Menu';
+import { Fragment, useState } from 'react';
+
 function Menu() {
-  // const handleClick = ()=>{
-  //   const element = document.getElementById('destination')
-  //   element.classList.toggle(styles.destination_class)
-  // }
+  const [open, setOpen] = useState({});
+  const handleOpen = (item) => {
+    setOpen({ ...open, [item.key]: !open[item.key] });
+  };
   return (
-    <div className="max-w-screen-2xl mx-auto">
-      <div className="flex items-center justify-center p-2 md:p-8 bg-slate-200">
-        <nav className="w-full">
-          <ul className="flex justify-evenly items-center ">
-            <li>
-              <NavLink className="text-slate-800 no-underline text-sm md:text-base lg:text-lg font-Almendra font-medium not-italic cursor-pointer   ">
-                Giới thiệu
-              </NavLink>
-            </li>
-            <li>
-              <div className="text-slate-800 no-underline text-sm md:text-base lg:text-lg font-Almendra font-medium not-italic cursor-pointer hover:underline">
-                Điểm đến
-              </div>
-              {/* <div id="destination" className={styles.destination_class}>
-                  <Destination/>
-              </div> */}
-            </li>
-            <li>
-              <LightTooltip
-                title={
-                  <div className="grid grid-rows-2 gap-6 py-3 px-2">
-                    <div className="flex items-center p-1">
-                      <ChevronRightIcon fontSize="medium" />
-                      <Link className="ml-2 font-Almendra text-lg hover:text-blue-600 hover:underline">
-                        Học bổng chính phủ
-                      </Link>
-                    </div>
-                    <div className="flex items-center p-1">
-                      <ChevronRightIcon fontSize="medium" />
-                      <Link className="ml-2 font-Almendra text-lg hover:text-blue-600 hover:underline">
-                        Học bổng trường
-                      </Link>
-                    </div>
+    <nav className="py-4 bg-[#3861AF] px-8 text-white">
+      <ul className=" grid grid-cols-7">
+        {TopMenu.map((item, index) => (
+          <li
+            key={index}
+            className="text-center col-span-1 font-Inter cursor-pointer hover:underline relative"
+          >
+            <Link
+              to={item.src}
+              onClick={item?.child ? () => handleOpen(item) : ''}
+            >
+              {item.title}
+            </Link>
+            {item?.child  && open[item.key] ? (
+              <ul className="flex flex-col absolute bg-white text-black right-8 top-8">
+                { !item?.haveSubChild ? item.child.map((child, index) => (
+                    <li
+                      className="font-Inter px-3 py-4 border-t-[0.5px] border-gray-200 text-left text-[14px] hover:bg-[#1877F2] hover:text-white"
+                      key={index}
+                    >
+                      {child.title}
+                    </li>
+                )) : (item.child.map((child,index)=>(
+                  <div>
+                    {child.title}
+                    {child.subChild.map((subChild, index)=>(
+                      <li>{subChild.title}</li>
+                    ))}
                   </div>
-                }
-              >
-                <div className="text-slate-800 no-underline text-sm md:text-base lg:text-lg font-Almendra font-medium not-italic cursor-pointer hover:underline">
-                  Học bổng
-                </div>
-              </LightTooltip>
-            </li>
-            <li>
-              <LightTooltip
-                title={
-                  <div className="grid grid-rows-2 gap-6 py-3 px-2">
-                    <div className="flex items-center p-1">
-                      <ChevronRightIcon fontSize="medium" />
-                      <Link className="ml-2 font-Almendra text-lg hover:text-blue-600 hover:underline">
-                        Săn học bổng
-                      </Link>
-                    </div>
-                    <div className="flex items-center p-1">
-                      <ChevronRightIcon fontSize="medium" />
-                      <Link className="ml-2 font-Almendra text-lg hover:text-blue-600 hover:underline">
-                        Thị thực
-                      </Link>
-                    </div>
-                  </div>
-                }
-              >
-                <div className="text-slate-800 no-underline text-sm md:text-base lg:text-lg font-Almendra font-medium not-italic cursor-pointer hover:underline">
-                  Dịch vụ
-                </div>
-              </LightTooltip>
-            </li>
-            <li>
-              <NavLink className="text-slate-800 no-underline text-sm md:text-base lg:text-lg font-Almendra font-medium not-italic cursor-pointer hover:underline">
-                Tin tức và sự kiện
-              </NavLink>
-            </li>
-            <li>
-              <Link
-                to="/consultation"
-                className="text-slate-800 no-underline text-sm md:text-base lg:text-lg font-Almendra font-medium not-italic cursor-pointer hover:underline"
-              >
-                Đăng kí tư vấn
-              </Link>
-            </li>
-            <li>
-              <NavLink className="text-slate-800 no-underline text-sm md:text-base lg:text-lg font-Almendra font-medium not-italic cursor-pointer hover:underline">
-                Liên hệ
-              </NavLink>
-            </li>
-          </ul>
-        </nav>
-      </div>
-    </div>
+                )))}
+              </ul>
+            ) : (
+              <></>
+            )}
+          </li>
+        ))}
+      </ul>
+    </nav>
   );
 }
 

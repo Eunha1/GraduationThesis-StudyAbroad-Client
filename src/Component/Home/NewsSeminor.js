@@ -1,6 +1,22 @@
+import { useEffect, useState } from 'react';
 import images from '../../assets/images';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
+import { getRequest } from '../../api/api';
+import { convertDate } from '../../utils/Convert';
+import { useNavigate } from 'react-router-dom';
 function NewsSeminor() {
+  const [data, setData] = useState();
+  const navigate = useNavigate();
+  useEffect(() => {
+    getListPostBySlug();
+  }, []);
+  const getListPostBySlug = async () => {
+    const data = await getRequest('/list-post/category?slug=du-hoc');
+    setData(data.data);
+  };
+  const handleClick = (id) => {
+    navigate(`/study-abroad/${id}`);
+  };
   return (
     <div className="grid grid-cols-10 gap-8 mt-[100px] mx-[100px]">
       <div className="col-span-5">
@@ -25,55 +41,33 @@ function NewsSeminor() {
       <div className="col-span-5">
         <div className="w-auto">
           <p className="font-bold text-2xl underline my-4">Sự kiện du học</p>
-          <div className="grid grid-rows-9 gap-8">
-            <div className="flex row-span-3">
-              <img
-                src={images.seminor_1}
-                alt="seminor"
-                className="h-[120px] w-[180px]"
-              />
-              <div className="flex flex-col ml-10">
-                <p className="font-medium text-sm ">
-                  Ngày hội săn học bổng lớn nhất năm 2024
-                </p>
-                <div className="flex items-center py-2">
-                  <CalendarMonthIcon fontSize="medium" />
-                  <p className="italic font-light ml-4">Ngày đăng 01/04/2024</p>
+          <div className="grid grid-rows-9 gap-8 cursor-pointer">
+            {data ? (
+              data.map((item, index) => (
+                <div
+                  className="flex row-span-3"
+                  key={index}
+                  onClick={() => handleClick(item._id)}
+                >
+                  <img
+                    src={item.image}
+                    alt="seminor"
+                    className="h-[200px] w-[150px] object-cover"
+                  />
+                  <div className="flex flex-col ml-10">
+                    <p className="font-medium text-sm ">{item.title}</p>
+                    <div className="flex items-center py-2">
+                      <CalendarMonthIcon fontSize="medium" />
+                      <p className="italic font-light ml-4">
+                        Ngày đăng {convertDate(item.updated_at)}
+                      </p>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
-            <div className="flex row-span-3">
-              <img
-                src={images.seminor_2}
-                alt="seminor"
-                className="h-[120px] w-[180px]"
-              />
-              <div className="flex flex-col ml-10">
-                <p className="font-medium text-sm ">
-                  Du học Úc , cơ hội lớn , thử ngay{' '}
-                </p>
-                <div className="flex items-center py-2">
-                  <CalendarMonthIcon fontSize="medium" />
-                  <p className="italic font-light ml-4">Ngày đăng 01/04/2024</p>
-                </div>
-              </div>
-            </div>
-            <div className="flex row-span-3">
-              <img
-                src={images.seminor_3}
-                alt="seminor"
-                className="h-[120px] w-[180px]"
-              />
-              <div className="flex flex-col ml-10">
-                <p className="font-medium text-sm ">
-                  Triển lãm du học và định cư tại nước ngoài
-                </p>
-                <div className="flex items-center py-2">
-                  <CalendarMonthIcon fontSize="medium" />
-                  <p className="italic font-light ml-4">Ngày đăng 01/04/2024</p>
-                </div>
-              </div>
-            </div>
+              ))
+            ) : (
+              <div>Loading</div>
+            )}
           </div>
         </div>
       </div>
