@@ -11,7 +11,7 @@ function NewsSeminor() {
     getListPostBySlug();
   }, []);
   const getListPostBySlug = async () => {
-    const data = await getRequest('/list-post/category?slug=du-hoc');
+    const data = await getRequest('/list-post/slug?slug=du-hoc');
     setData(data.data);
   };
   const handleClick = (id) => {

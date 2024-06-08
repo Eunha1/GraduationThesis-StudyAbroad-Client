@@ -25,6 +25,7 @@ const images = {
   service: require('./service.webp'),
   feature_2: require('./feature_2.webp'),
   feature_3: require('./feature_3.webp'),
+  consultaion: require('./consultation.png'),
 };
 
 export default images;

@@ -3,11 +3,6 @@ function Intro() {
   return (
     <div>
       <div className=" bg-sky-400">
-        <img
-          src={images.background}
-          alt="background"
-          className="w-full lg:h-[400px] h-auto object-cover"
-        />
         <div className="flex flex-col items-center p-2 mt-[100px]">
           <p className="text-3xl font-bold font-Fredericka">
             Thành tựu của học sinh HustEDU{' '}

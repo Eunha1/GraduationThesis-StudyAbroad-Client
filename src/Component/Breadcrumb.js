@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 function Breadcrumb({ title, listBreadcrumb }) {
   return (
     <div>
-      <div className="text-[20px] font-medium my-2 p-1 font-Inter text-[#504d4d]">
+      <div className="text-[20px] font-medium my-1 p-1 font-Inter text-[#504d4d]">
         {title}
       </div>
       <div className="p-1 my-2">
@@ -30,6 +30,7 @@ function Breadcrumb({ title, listBreadcrumb }) {
           )}
         </Breadcrumbs>
       </div>
+      <div className="border-b-[0.5px] border-gray-300 mb-6"></div>
     </div>
   );
 }
