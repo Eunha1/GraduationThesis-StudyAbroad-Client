@@ -1,17 +1,27 @@
+import { useEffect, useState } from 'react';
 import Footer from '../Component/Footer/Footer';
 import Header from '../Component/Header/Header';
-import images from '../assets/images';
+import { getRequest } from '../api/api';
+import { Carousel } from 'react-responsive-carousel';
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
 function PublicLayout({ children }) {
+  const [topBanner, setTopBanner] = useState()
+  useEffect(()=>{
+    getTopBanner()
+  },[])
+  const getTopBanner = async ()=>{
+    const data = await getRequest('/home-manager/get-banner?type=1')
+    setTopBanner(data.data)
+  }
   return (
     <div>
       <Header />
-      <div>
-        <img
-          src={images.background}
-          alt="background"
-          className="w-full lg:h-[400px] h-auto object-cover"
-        />
-      </div>
+      {topBanner ? 
+        <Carousel autoPlay showArrows={true} showThumbs={false}>
+          {topBanner.map((item,index)=>(
+            <img src={item.image} key={index} alt='banner' className='object-cover h-[400px] w-full'/>
+          ))}
+        </Carousel> :<></>}
       <div>{children}</div>
       <Footer />
     </div>
