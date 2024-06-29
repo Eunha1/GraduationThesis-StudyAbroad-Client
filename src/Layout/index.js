@@ -19,7 +19,7 @@ function PublicLayout({ children }) {
       {topBanner ? 
         <Carousel autoPlay showArrows={true} showThumbs={false}>
           {topBanner.map((item,index)=>(
-            <img src={item.image} key={index} alt='banner' className='object-cover h-[400px] w-full'/>
+            <img src={item.image} key={index} alt='banner' className='object-cover lg:h-[350px] h-[250px] w-full'/>
           ))}
         </Carousel> :<></>}
       <div>{children}</div>

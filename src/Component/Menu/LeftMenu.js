@@ -12,14 +12,14 @@ function LeftMenu() {
     setMenu(data.data);
   };
   return (
-    <nav className="bg-gray-100 min-w-[300px] h-max mr-10">
+    <nav className="bg-gray-100 lg:min-w-[300px] min-w-[250px] h-max mr-10">
       <ul className="flex flex-col p-4">
         {menu ? (
           menu.map((item, index) => (
             <li key={index} className="my-2">
               <Link
                 to={item.children.length > 0 ? '' : `/${item._id}`}
-                className="underline underline-offset-4 decoration-blue-400 font-Inter cursor-pointer font-medium decoration-2 text-[20px] hover:text-[#3861AF]"
+                className="underline underline-offset-4 decoration-blue-400 font-Inter cursor-pointer font-medium decoration-2 lg:text-[20px] text-[16px] hover:text-[#3861AF]"
               >
                 {item.name}
               </Link>
@@ -30,7 +30,7 @@ function LeftMenu() {
                     <li className="" key={index}>
                       <Link to={`/${child._id}`} className="flex p-1">
                         <ChevronRightIcon />
-                        <p className="font-Inter ml-3 hover:text-[#3861AF]">
+                        <p className="font-Inter ml-3 lg:text-base text-sm hover:text-[#3861AF]">
                           {child.name}
                         </p>
                       </Link>

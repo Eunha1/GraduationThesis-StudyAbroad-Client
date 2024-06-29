@@ -21,7 +21,7 @@ function NewsSeminor() {
     navigate(`/chi-tiet-bai-viet/${id}`);
   };
   return (
-    <div className="grid grid-cols-2 gap-x-[50px] mt-[50px] mx-[200px]">
+    <div className="grid grid-cols-2 gap-x-[50px] lg:mt-[50px] mt-[30px] lg:mx-[200px] mx-[30px]">
       <div className="col-span-1">
         <div className="w-auto">
           <p className="font-bold text-xl underline my-4">Sự kiện</p>

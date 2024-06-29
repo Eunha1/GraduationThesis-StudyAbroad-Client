@@ -17,14 +17,13 @@ function Home() {
   }
   return (
     <div>
-      <Intro />
       <NewsSeminor />
       <Testimonial />
       <Brand />
       {bottomBanner ? <div className='mt-[50px]'>
         <Carousel autoPlay showArrows={true} showThumbs={false}>
           {bottomBanner.map((item,index)=>(
-            <img src={item.image} key={index} alt='banner' className='object-cover h-[500px] w-full'/>
+            <img src={item.image} key={index} alt='banner' className='object-cover lg:h-[500px] h-[350px] w-full'/>
           ))}
         </Carousel>
       </div>: <></>}

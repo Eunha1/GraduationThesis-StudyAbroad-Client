@@ -22,7 +22,7 @@ function Brand() {
         <img src={images.korean} alt="korean" className="col-span-1" />
         <img src={images.japan} alt="japan" className="col-span-1" />
       </div>
-      <div className="grid grid-cols-3 gap-[100px] my-[100px] mx-[200px]">
+      <div className="grid grid-cols-3 lg:gap-x-[100px] gap-x-[50px] lg:my-[100px] m-[30px] lg:mx-[200px]">
         <div className="col-span-1 flex flex-col items-center">
           <div className="h-[100px] w-[100px] rounded-full bg-blue-700 flex items-center justify-center">
             <img src={images.service} alt="service" />

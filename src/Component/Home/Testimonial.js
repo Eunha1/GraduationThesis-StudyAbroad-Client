@@ -14,7 +14,7 @@ function Testimonial() {
   };
   return (
     <div className="mt-[100px]">
-      <div className="h-[600px] w-full relative">
+      <div className="lg:h-[600px] h-[500px] w-full relative">
         <img
           src={images.bg_testimonial}
           alt="background"
@@ -22,7 +22,7 @@ function Testimonial() {
         />
         <div className="absolute z-10 top-3 left-10 right-10">
           <div className="h-full w-full py-[10px] px-[60px] flex flex-col ">
-            <div className="flex justify-center">
+            <div className="flex justify-center mb-4">
               <p className="text-white font-bold text-2xl ">
                 Lời ngỏ của các học sinh HustEDU
               </p>
@@ -38,7 +38,7 @@ function Testimonial() {
                           <img
                             src={item.image}
                             alt="image"
-                            className="max-w-[100px] min-w=[100px] max-h-[100px] min-h-[100px] rounded-[50%] object-cover"
+                            className="max-w-[100px] min-w-[100px] max-h-[100px] min-h-[100px] rounded-[50%] object-cover"
                           />
                         <div className="flex flex-col ml-4 text-white py-2">
                           <p className="font-bold text-xl">{item.name}</p>
