@@ -2,7 +2,6 @@ const images = {
   logo: require('./logo.png'),
   email: require('./email.png'),
   hotline: require('./hotline.png'),
-  leftArrow: require('./left-arrow.png'),
   logo_image: require('./logo-image.png'),
   bg_testimonial: require('./bg-testimonial.webp'),
   united_kingdom: require('./UK.webp'),
