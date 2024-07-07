@@ -10,7 +10,7 @@ function Testimonial() {
   }, []);
   const getListTestimonial = async () => {
     const data = await getRequest('/home-manager/list-testimonial');
-    setTestimonial(data.data);
+    setTestimonial(data.data.data);
   };
   return (
     <div className="mt-[100px]">

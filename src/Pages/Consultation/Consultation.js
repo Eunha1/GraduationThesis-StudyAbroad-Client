@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react';
 import { getRequest, postRequest } from '../../api/api';
 import { toast } from 'react-toastify';
 import LeftMenu from '../../Component/Menu/LeftMenu';
+import { Link } from 'react-router-dom';
 function Consultation() {
   const title = 'Đăng kí tư vấn du học';
   const listBreadcrumb = [
@@ -97,46 +98,46 @@ function Consultation() {
           <Breadcrumb title={title} listBreadcrumb={listBreadcrumb} />
         </div>
         {localStorage.getItem('advise-info') ? (
-          <div class="flex items-center justify-center">
-            <div class="p-4 rounded shadow-lg ring ring-indigo-600/50">
-              <div class="flex flex-col items-center space-y-2">
+          <div className="flex items-center justify-center">
+            <div className="p-4 rounded shadow-lg ring ring-indigo-600/50">
+              <div className="flex flex-col items-center space-y-2">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  class="text-green-600 w-28 h-28"
+                  className="text-green-600 w-28 h-28"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
-                  stroke-width="1"
+                  strokeWidth="1"
                 >
                   <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                     d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
                   />
                 </svg>
-                <h2 class="text-4xl font-bold">Thank You !</h2>
+                <h2 className="text-4xl font-bold">Thank You !</h2>
                 <p>
                   {' '}
                   Cảm ơn bạn đã sử dụng dịch vụ đăng kí tư vấn của chúng tôi.
                   Chúng tôi sẽ sớm liên hệ với bạn
                 </p>
                 {/* eslint-disable-next-line */}
-                <a class="inline-flex items-center px-4 py-2 text-white bg-indigo-600 border border-indigo-600 rounded-full hover:bg-indigo-700 focus:outline-none focus:ring">
+                <a className="inline-flex items-center px-4 py-2 text-white bg-indigo-600 border border-indigo-600 rounded-full hover:bg-indigo-700 focus:outline-none focus:ring">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    class="w-3 h-3 mr-2"
+                    className="w-3 h-3 mr-2"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
-                    stroke-width="2"
+                    strokeWidth="2"
                   >
                     <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
                       d="M7 16l-4-4m0 0l4-4m-4 4h18"
                     />
                   </svg>
-                  <span class="text-sm font-medium">Home</span>
+                  <Link className="text-sm font-medium" to='/'>Home</Link>
                 </a>
               </div>
             </div>

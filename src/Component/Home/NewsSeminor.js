@@ -1,22 +1,36 @@
 import { useEffect, useState } from 'react';
-import images from '../../assets/images';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import { getRequest } from '../../api/api';
 import { convertDate } from '../../utils/Convert';
 import { useNavigate } from 'react-router-dom';
+import BasePagination from '../BasePagination';
 function NewsSeminor() {
   const [news, setNews] = useState();
   const [event, setEvent] = useState();
+  const [totalPageEvent, setTotalPageEvent] = useState()
+  const [totalPageNews, setTotalPageNews] = useState()
   const navigate = useNavigate();
   useEffect(() => {
-    getListPostByType();
+    getListNews();
+    getListEvent()
+    // eslint-disable-next-line
   }, []);
-  const getListPostByType = async () => {
-    const news = await getRequest('/home-manager/news-and-event/type?type=2');
-    const event = await getRequest('/home-manager/news-and-event/type?type=1');
-    setNews(news.data);
-    setEvent(event.data);
+  const getListNews = async (page = 1) => {
+    const news = await getRequest(`/home-manager/news-and-event?type=2&page=${page}&limit=3`);
+    setNews(news.data.data);
+    setTotalPageNews(news.data.paginate.total_page)
   };
+  const getListEvent = async (page = 1)=>{
+    const event = await getRequest(`/home-manager/news-and-event?type=1&page=${page}&limit=3`);
+    setEvent(event.data.data);
+    setTotalPageEvent(event.data.paginate.total_page)
+  }
+  const onPageChangeNews = (page)=>{
+    getListNews(page)
+  }
+  const onPageChangeEvent = (page)=>{
+    getListEvent(page)
+  }
   const handleClick = (id) => {
     navigate(`/chi-tiet-bai-viet/${id}`);
   };
@@ -55,6 +69,9 @@ function NewsSeminor() {
               <div>Loading</div>
             )}
           </div>
+          <div className='mt-7'>
+            <BasePagination totalPage={totalPageEvent} onPageChange={onPageChangeEvent}></BasePagination>
+          </div>
         </div>
       </div>
       <div className="col-span-1">
@@ -89,6 +106,9 @@ function NewsSeminor() {
             ) : (
               <div>Loading</div>
             )}
+          </div>
+          <div className='mt-7'>
+            <BasePagination totalPage={totalPageNews} onPageChange={onPageChangeNews}></BasePagination>
           </div>
         </div>
       </div>
