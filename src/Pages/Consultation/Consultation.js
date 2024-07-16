@@ -172,7 +172,7 @@ function Consultation() {
                     Số điện thoại <span className="text-red-500">*</span>
                   </label>
                   <TextField
-                    type="text"
+                    type="number"
                     name="phone"
                     variant="outlined"
                     label="Enter phone"
